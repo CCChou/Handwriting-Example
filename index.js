@@ -5,7 +5,7 @@ $(document).ready(function () {
     const $displayArea = $('#displayArea');
 
     $submitBtn.on('click', function() {
-        let inputString = $inputWord.val();
+        let inputString = $inputWord.val().trim();
         let displayContent = '';
 
         for(let inputChar of inputString) {
