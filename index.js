@@ -5,13 +5,21 @@ $(document).ready(function () {
     const $displayArea = $('#displayArea');
 
     $submitBtn.on('click', function() {
-        let inputString = $inputWord.val().trim();
+        let inputString = $inputWord.val();
         let displayContent = '';
 
         for(let inputChar of inputString) {
+			inputChar = inputChar.trim();
+			if(inputChar === '' || isEscapeChar(inputChar)) {
+				continue;
+			}
             displayContent += `<img id="img_show" src="http://write.phc.edu.tw//draw.php?${inputChar}" border="0" width="200" height="200"/>`;
         }
 
         $displayArea.html(displayContent);
     });
+	
+	let isEscapeChar = function(inputChar) {
+		return inputChar === '，' || inputChar === '。';
+	}
 })
