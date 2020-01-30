@@ -6,7 +6,7 @@ class Display extends React.Component {
   render() {
     return (
       <div id="displayArea">
-        {this.props.values
+        {this.props.text
           .split('')
           .filter(word => !word.match(/[\s]/gi))
           .map(word => (
@@ -18,7 +18,7 @@ class Display extends React.Component {
 }
 
 Display.propTypes = {
-  values: PropTypes.string
+  text: PropTypes.string
 };
 
 export { Display };
